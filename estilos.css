@@ -1,0 +1,314 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #e0e0e0;
+    color:#1d1d1d;
+}
+
+.contenedor{
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto 100px auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 40px;
+}
+
+.contenedor .pelicula{
+    text-align: center;
+    cursor: pointer;
+}
+
+.contenedor .pelicula .titutlo{
+   font-size: 20px;
+   font-weight: 600;
+}
+
+.contenedor .pelicula .poster{
+    width: 100%;
+    min-height: 200px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contenedor .pelicula .poster:hover{
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.paginacion{
+   position: fixedl;
+   bottom: 0;
+   background:#100a1f;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   gap: 20px;
+   padding: 10px;
+
+}
+
+.paginacion button{
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 50px;
+    width: 200px;
+    background: #241744;
+    color: #fff;
+    border-radius: 100px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    transition: .3s ease all;
+
+}
+
+.paginacion button:hover{
+    background: #3d2b5c;
+}
+
+.topnav{
+    width: 100%;
+    min-height: 30vh;
+    padding: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.search-bar{
+    width: 100%;
+    max-width: 700px;
+    background:  rgb(32,32,32,0.2);
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 10px 20px;
+}
+
+.search-bar input{
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 24px 20px;
+    font-size: 20px;
+    color: #fff;
+}
+
+::placeholder{
+    color: #fff;
+}
+
+.search-bar button img{
+    width: 25px;
+}
+.search-bar button{
+    border: 0;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    color: #cac7ff;
+}
+
+.search-bar button:hover {
+    background-color: #6c63ff; 
+    color: #fff; 
+    transition: background-color 0.3s ease; 
+}
+
+/* Estilos para el modal de película aleatoria */
+.modal-pelicula {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-contenido {
+    background-color: #fff;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    padding: 15px 20px;
+    background-color: #241744;
+    color: white;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.modal-body {
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.pelicula-info {
+    display: flex;
+    gap: 20px;
+}
+
+.poster-modal {
+    width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.detalles-pelicula {
+    flex: 1;
+}
+
+.detalles-pelicula h3 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.ano-pelicula {
+    font-weight: normal;
+    color: #666;
+}
+
+.calificacion {
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+.estrellas {
+    color: #f5c518;
+    font-size: 1.3rem;
+}
+
+.sinopsis {
+    line-height: 1.6;
+    color: #444;
+}
+
+.modal-footer {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    background-color: #f5f5f5;
+}
+
+.btn-ver-detalles, .btn-otra-pelicula {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.btn-ver-detalles {
+    background-color: #241744;
+    color: white;
+}
+
+.btn-ver-detalles:hover {
+    background-color: #3d2b5c;
+}
+
+.btn-otra-pelicula {
+    background-color: #6c63ff;
+    color: white;
+}
+
+.btn-otra-pelicula:hover {
+    background-color: #5046e4;
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Botón de película aleatoria */
+.btn-pelicula-aleatoria {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    transition: transform 0.3s, background-color 0.3s;
+    z-index: 100;
+}
+
+.btn-pelicula-aleatoria:hover {
+    transform: scale(1.1) rotate(15deg);
+    background-color: #5046e4;
+}
+
+.btn-pelicula-aleatoria:active {
+    transform: scale(0.95);
+}
+
+/* Responsive para dispositivos móviles */
+@media (max-width: 768px) {
+    .pelicula-info {
+        flex-direction: column;
+    }
+    
+    .poster-modal {
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.2rem;
+    }
+    
+    .detalles-pelicula h3 {
+        font-size: 1.4rem;
+        margin-top: 15px;
+    }
+}
